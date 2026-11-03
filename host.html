@@ -11,8 +11,12 @@
 <body>
     <header>
         <a href="index.html" class="brand">
-            <div class="brand-icon">⚡</div>
-            <span>Multibuzz <span style="font-size: 0.75rem; opacity: 0.7;">HOST</span></span>
+            <div class="brand-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+            </div>
+            <span>Multibuzz <span style="font-size: 0.75rem; opacity: 0.7; font-weight: 500;">HOST</span></span>
         </a>
 
         <div style="display: flex; align-items: center; gap: 8px;">
@@ -20,23 +24,45 @@
             <div style="display: flex; align-items: center; background: rgba(30, 41, 59, 0.9); border: 1px solid var(--border-bright); padding: 4px 10px; border-radius: 10px; gap: 8px;">
                 <span id="room-code-display" class="mono-timer" style="font-weight: 800; font-size: 1.15rem; color: #38bdf8; letter-spacing: 0.08em;">------</span>
                 <button id="btn-show-qr" class="btn btn-outline btn-icon" style="height: 28px; width: 28px; padding: 0;" title="QR Code">
-                    📱
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
                 </button>
             </div>
 
             <!-- Participants Roster -->
             <button id="btn-show-participants" class="btn btn-outline" style="padding: 6px 10px; font-size: 0.85rem;" title="Connected Participants">
-                👥 <span id="participant-count">0</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span id="participant-count">0</span>
             </button>
 
             <!-- Scoreboard -->
             <button id="btn-show-scoreboard" class="btn btn-outline" style="padding: 6px 10px; font-size: 0.85rem;" title="Scoreboard">
-                🏆 Scores
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;">
+                    <path d="M6 9H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2"></path>
+                    <path d="M18 9h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"></path>
+                    <path d="M6 3h12v7a6 6 0 0 1-12 0V3z"></path>
+                    <path d="M9 21h6"></path>
+                    <path d="M12 16v5"></path>
+                </svg>
+                Scores
             </button>
 
             <!-- Sound Toggle -->
             <button id="btn-sound-toggle" class="btn btn-outline" style="padding: 6px 10px; font-size: 0.85rem;">
-                🔊 ON
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+                ON
             </button>
         </div>
     </header>
@@ -64,7 +90,7 @@
             <!-- Action Buttons -->
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                 <button id="btn-toggle-buzzer" class="btn btn-success btn-lg" style="flex: 2; min-width: 180px;">
-                    ⚡ Unlock (Space)
+                    Unlock (Space)
                 </button>
                 <button id="btn-reset-round" class="btn btn-primary" style="flex: 1; min-width: 120px;">
                     Next Q (R)
@@ -73,7 +99,7 @@
                     Clear (C)
                 </button>
                 <button id="btn-simulate-buzz" class="btn btn-outline" style="min-width: 80px;" title="Simulate 4 buzzes for testing">
-                    🤖 Test
+                    Test
                 </button>
             </div>
         </section>

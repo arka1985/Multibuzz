@@ -60,7 +60,7 @@ class QuizPlayer {
         // Sound toggle
         this.dom.btnSoundToggle.addEventListener('click', () => {
             const enabled = window.soundEngine.toggleSound();
-            this.dom.btnSoundToggle.innerHTML = enabled ? '🔊 Sound ON' : '🔇 Muted';
+            this.dom.btnSoundToggle.innerText = enabled ? 'Sound ON' : 'Muted';
         });
 
         // Ultra-low latency Buzzer Tap Listener
@@ -125,7 +125,7 @@ class QuizPlayer {
                 this.showBuzzerScreen();
             },
             onDisconnected: () => {
-                this.dom.connectionStatus.innerText = '⚠️ Disconnected from host';
+                this.dom.connectionStatus.innerText = 'Disconnected';
                 this.dom.connectionStatus.style.color = '#ef4444';
             },
             onMessage: (msg) => {
@@ -179,7 +179,7 @@ class QuizPlayer {
             // UI changes for Unlocked state
             this.dom.buzzerHousing.className = 'buzzer-housing active-glow';
             this.dom.buzzerButton.className = 'buzzer-button state-ready';
-            this.dom.buzzerStatusText.innerText = '⚡ BUZZ NOW!';
+            this.dom.buzzerStatusText.innerText = 'BUZZ NOW!';
             this.dom.buzzerResultCard.style.display = 'none';
 
             window.soundEngine.playUnlock();
@@ -189,7 +189,7 @@ class QuizPlayer {
             this.dom.buzzerButton.className = 'buzzer-button state-locked';
             
             if (!this.hasBuzzed) {
-                this.dom.buzzerStatusText.innerText = '🔒 LOCKED';
+                this.dom.buzzerStatusText.innerText = 'LOCKED';
                 this.dom.buzzerResultCard.style.display = 'none';
             }
         }
@@ -239,7 +239,7 @@ class QuizPlayer {
         const buzzData = this.network.buzz(this.unlockTimestamp);
 
         // Immediate optimistic UI feedback
-        this.dom.buzzerStatusText.innerText = '🔔 BUZZED!';
+        this.dom.buzzerStatusText.innerText = 'BUZZED';
 
         if (buzzData) {
             this.dom.buzzerResultCard.style.display = 'flex';
@@ -256,16 +256,12 @@ class QuizPlayer {
             this.myBuzzResult = myEntry;
             this.dom.buzzerResultCard.style.display = 'flex';
             
-            let rankEmoji = `#${myEntry.rank}`;
-            if (myEntry.rank === 1) rankEmoji = '🥇 #1';
-            else if (myEntry.rank === 2) rankEmoji = '🥈 #2';
-            else if (myEntry.rank === 3) rankEmoji = '🥉 #3';
-
-            this.dom.resultRankBadge.innerText = rankEmoji;
+            const rankLabel = `#${myEntry.rank}`;
+            this.dom.resultRankBadge.innerText = rankLabel;
             this.dom.resultTimeText.innerText = (myEntry.elapsedMs / 1000).toFixed(3) + 's';
 
             if (myEntry.rank === 1) {
-                this.dom.buzzerStatusText.innerText = '🥇 1st Place!';
+                this.dom.buzzerStatusText.innerText = '#1 (FIRST)';
                 this.dom.buzzerResultCard.style.background = 'linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(30, 41, 59, 0.9))';
                 this.dom.buzzerResultCard.style.borderColor = 'rgba(245, 158, 11, 0.6)';
             } else {

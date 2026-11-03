@@ -16,7 +16,7 @@
             padding: 1.5rem;
         }
         .portal-card {
-            padding: 2rem;
+            padding: 2.25rem 2rem;
             display: flex;
             flex-direction: column;
             gap: 1.25rem;
@@ -27,7 +27,11 @@
 <body style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between;">
     <header>
         <a href="index.html" class="brand">
-            <div class="brand-icon">⚡</div>
+            <div class="brand-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+            </div>
             <span>Multibuzz</span>
         </a>
     </header>
@@ -35,8 +39,14 @@
     <main class="portal-grid">
         <!-- Host Portal -->
         <div class="glass-panel portal-card">
-            <div style="font-size: 2.5rem;">👑</div>
-            <h2 style="font-size: 1.4rem; font-weight: 800;">Host</h2>
+            <div class="icon-circle primary">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+            </div>
+            <h2 style="font-size: 1.35rem; font-weight: 800;">Host</h2>
             <a href="host.html" class="btn btn-primary btn-lg" style="margin-top: auto;">
                 Create Room
             </a>
@@ -44,8 +54,13 @@
 
         <!-- Join Portal -->
         <div class="glass-panel portal-card">
-            <div style="font-size: 2.5rem;">🔔</div>
-            <h2 style="font-size: 1.4rem; font-weight: 800;">Participant</h2>
+            <div class="icon-circle success">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <circle cx="12" cy="12" r="4"></circle>
+                </svg>
+            </div>
+            <h2 style="font-size: 1.35rem; font-weight: 800;">Participant</h2>
             <div style="display: flex; flex-direction: column; gap: 8px;">
                 <input id="quick-join-code" type="text" placeholder="ROOM CODE" maxlength="8" class="mono-timer" style="width: 100%; padding: 12px; border-radius: 10px; background: rgba(15,23,42,0.8); border: 1px solid var(--border-bright); color: var(--text-main); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; outline: none;">
                 <button id="btn-quick-join" class="btn btn-success btn-lg">

@@ -108,7 +108,7 @@ class QuizHost {
     }
 
     updateSoundButtonUI(enabled) {
-        this.dom.btnSoundToggle.innerHTML = enabled ? '🔊 ON' : '🔇 OFF';
+        this.dom.btnSoundToggle.innerHTML = enabled ? 'Sound ON' : 'Sound OFF';
         this.dom.btnSoundToggle.className = enabled 
             ? 'btn btn-outline' 
             : 'btn btn-outline text-muted';
@@ -264,7 +264,7 @@ class QuizHost {
         this.dom.statusBadge.style.borderColor = 'rgba(16, 185, 129, 0.3)';
         this.dom.statusBadge.innerText = 'OPEN';
         if (this.dom.statusText) this.dom.statusText.innerText = '';
-        this.dom.btnToggleBuzzer.innerHTML = '🔒 Lock (Space)';
+        this.dom.btnToggleBuzzer.innerHTML = 'Lock (Space)';
         this.dom.btnToggleBuzzer.className = 'btn btn-danger btn-lg';
 
         // Play unlock chime
@@ -294,7 +294,7 @@ class QuizHost {
         this.dom.statusBadge.style.borderColor = 'rgba(239, 68, 68, 0.3)';
         this.dom.statusBadge.innerText = 'LOCKED';
         if (this.dom.statusText) this.dom.statusText.innerText = '';
-        this.dom.btnToggleBuzzer.innerHTML = '⚡ Unlock (Space)';
+        this.dom.btnToggleBuzzer.innerHTML = 'Unlock (Space)';
         this.dom.btnToggleBuzzer.className = 'btn btn-success btn-lg';
 
         // Play lock sound
@@ -365,10 +365,7 @@ class QuizHost {
             const card = document.createElement('div');
             card.className = `buzz-card ${rank <= 3 ? `rank-${rank}` : ''}`;
 
-            let rankIcon = `#${rank}`;
-            if (rank === 1) rankIcon = '🥇';
-            if (rank === 2) rankIcon = '🥈';
-            if (rank === 3) rankIcon = '🥉';
+            const rankIcon = rank;
 
             const formattedTime = this.formatSecondsMilliseconds(buzz.elapsedMs);
             const deltaText = rank === 1 
@@ -525,7 +522,7 @@ class QuizHost {
                         ${p.disconnected ? '● Disconnected' : '● Connected'}
                     </td>
                     <td style="padding: 12px; text-align: right;">
-                        <button class="btn btn-outline btn-icon" style="height:32px; width:32px;" onclick="quizHost.kickPlayer('${p.id}')">❌</button>
+                        <button class="btn btn-outline btn-icon" style="height:30px; width:30px;" onclick="quizHost.kickPlayer('${p.id}')">&times;</button>
                     </td>
                 `;
                 this.dom.participantsList.appendChild(tr);
