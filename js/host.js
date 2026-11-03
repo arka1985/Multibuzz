@@ -108,9 +108,7 @@ class QuizHost {
     }
 
     updateSoundButtonUI(enabled) {
-        this.dom.btnSoundToggle.innerHTML = enabled 
-            ? '🔊 Sound ON' 
-            : '🔇 Sound Muted';
+        this.dom.btnSoundToggle.innerHTML = enabled ? '🔊 ON' : '🔇 OFF';
         this.dom.btnSoundToggle.className = enabled 
             ? 'btn btn-outline' 
             : 'btn btn-outline text-muted';
@@ -261,9 +259,12 @@ class QuizHost {
 
         // Update UI
         this.dom.statusBadge.className = 'badge-live';
-        this.dom.statusBadge.innerText = 'BUZZERS OPEN';
-        this.dom.statusText.innerText = 'Listening for buzzes...';
-        this.dom.btnToggleBuzzer.innerHTML = '🔒 Lock Buzzers (Space)';
+        this.dom.statusBadge.style.backgroundColor = 'rgba(16, 185, 129, 0.15)';
+        this.dom.statusBadge.style.color = '#34d399';
+        this.dom.statusBadge.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+        this.dom.statusBadge.innerText = 'OPEN';
+        if (this.dom.statusText) this.dom.statusText.innerText = '';
+        this.dom.btnToggleBuzzer.innerHTML = '🔒 Lock (Space)';
         this.dom.btnToggleBuzzer.className = 'btn btn-danger btn-lg';
 
         // Play unlock chime
@@ -291,9 +292,9 @@ class QuizHost {
         this.dom.statusBadge.style.backgroundColor = 'rgba(239, 68, 68, 0.15)';
         this.dom.statusBadge.style.color = '#f87171';
         this.dom.statusBadge.style.borderColor = 'rgba(239, 68, 68, 0.3)';
-        this.dom.statusBadge.innerText = 'BUZZERS LOCKED';
-        this.dom.statusText.innerText = 'Buzzers locked';
-        this.dom.btnToggleBuzzer.innerHTML = '⚡ Unlock Buzzers (Space)';
+        this.dom.statusBadge.innerText = 'LOCKED';
+        if (this.dom.statusText) this.dom.statusText.innerText = '';
+        this.dom.btnToggleBuzzer.innerHTML = '⚡ Unlock (Space)';
         this.dom.btnToggleBuzzer.className = 'btn btn-success btn-lg';
 
         // Play lock sound
@@ -380,20 +381,17 @@ class QuizHost {
                     <div class="team-name" style="border-left: 4px solid ${buzz.color}; padding-left: 8px;">
                         ${this.escapeHtml(buzz.name)}
                     </div>
-                    <div class="team-meta">
-                        <span>Latency RTT: ~${buzz.rtt}ms</span>
-                    </div>
                 </div>
                 <div class="time-pill mono-timer">
                     <div>${formattedTime}</div>
                     <div class="time-delta ${rank === 1 ? 'leader' : ''}">${deltaText}</div>
                 </div>
                 <div class="buzz-actions" style="display: flex; gap: 6px;">
-                    <button class="btn btn-outline btn-icon" title="Correct (+10 pts)" onclick="quizHost.awardPoints('${buzz.playerId}', 10)">
-                        ✅
+                    <button class="btn btn-outline btn-icon" style="font-weight: 700; font-size: 0.8rem;" title="+10 pts" onclick="quizHost.awardPoints('${buzz.playerId}', 10)">
+                        +10
                     </button>
-                    <button class="btn btn-outline btn-icon" title="Wrong (-5 pts)" onclick="quizHost.awardPoints('${buzz.playerId}', -5)">
-                        ❌
+                    <button class="btn btn-outline btn-icon" style="font-weight: 700; font-size: 0.8rem;" title="-5 pts" onclick="quizHost.awardPoints('${buzz.playerId}', -5)">
+                        -5
                     </button>
                 </div>
             `;

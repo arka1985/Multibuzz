@@ -3,195 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multibuzz - Real-Time Quiz Buzzer System</title>
+    <title>Multibuzz</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        .hero {
-            text-align: center;
-            padding: 3.5rem 1rem 2rem 1rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-top: 1rem;
-            line-height: 1.6;
-        }
-        .action-cards {
+        .portal-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-            max-width: 900px;
-            margin: 1.5rem auto;
-            width: 100%;
-            padding: 0 1rem;
-        }
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.25rem;
-            max-width: 900px;
-            margin: 3rem auto;
+            max-width: 720px;
             width: 100%;
-            padding: 0 1rem;
-        }
-        .feature-card {
+            margin: auto;
             padding: 1.5rem;
+        }
+        .portal-card {
+            padding: 2rem;
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
-        }
-        .feature-icon {
-            font-size: 1.8rem;
-            margin-bottom: 0.25rem;
+            gap: 1.25rem;
+            text-align: center;
         }
     </style>
 </head>
-<body>
+<body style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between;">
     <header>
         <a href="index.html" class="brand">
             <div class="brand-icon">⚡</div>
             <span>Multibuzz</span>
         </a>
-        <div style="display: flex; gap: 10px;">
-            <a href="https://github.com" target="_blank" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px;">
-                ⭐ GitHub
-            </a>
-            <a href="host.html" class="btn btn-primary" style="font-size: 0.85rem; padding: 6px 14px;">
-                Host Quiz
-            </a>
-        </div>
     </header>
 
-    <main style="flex: 1; display: flex; flex-direction: column;">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="badge-live" style="margin-bottom: 1.25rem;">
-                Millisecond Time-Accurate Quiz Buzzer
+    <main class="portal-grid">
+        <!-- Host Portal -->
+        <div class="glass-panel portal-card">
+            <div style="font-size: 2.5rem;">👑</div>
+            <h2 style="font-size: 1.4rem; font-weight: 800;">Host</h2>
+            <a href="host.html" class="btn btn-primary btn-lg" style="margin-top: auto;">
+                Create Room
+            </a>
+        </div>
+
+        <!-- Join Portal -->
+        <div class="glass-panel portal-card">
+            <div style="font-size: 2.5rem;">🔔</div>
+            <h2 style="font-size: 1.4rem; font-weight: 800;">Participant</h2>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <input id="quick-join-code" type="text" placeholder="ROOM CODE" maxlength="8" class="mono-timer" style="width: 100%; padding: 12px; border-radius: 10px; background: rgba(15,23,42,0.8); border: 1px solid var(--border-bright); color: var(--text-main); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; outline: none;">
+                <button id="btn-quick-join" class="btn btn-success btn-lg">
+                    Join Buzzer
+                </button>
             </div>
-            <h1>The Ultra-Fast Buzzer System for Quizzes & Trivia</h1>
-            <p>
-                Host live trivia competitions with exact millisecond sequence tracking. Participants buzz in from any phone or browser. 100% serverless — ready to deploy directly on GitHub Pages!
-            </p>
-        </section>
-
-        <!-- Role Action Cards -->
-        <section class="action-cards">
-            <!-- Host Card -->
-            <div class="glass-panel glass-panel-interactive" style="padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                    <div style="font-size: 2.25rem; margin-bottom: 0.75rem;">👑</div>
-                    <h2 style="font-size: 1.5rem; font-weight: 800;">Quizmaster / Host</h2>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem; line-height: 1.5;">
-                        Create a room, display the join QR code on a projector, lock/unlock buzzers with your keyboard spacebar, and see who buzzed first with sub-second accuracy.
-                    </p>
-                </div>
-                <div style="margin-top: 2rem;">
-                    <a href="host.html" class="btn btn-primary btn-lg" style="width: 100%;">
-                        🚀 Launch Host Console
-                    </a>
-                </div>
-            </div>
-
-            <!-- Participant Join Card -->
-            <div class="glass-panel glass-panel-interactive" style="padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                    <div style="font-size: 2.25rem; margin-bottom: 0.75rem;">🔔</div>
-                    <h2 style="font-size: 1.5rem; font-weight: 800;">Join as Participant</h2>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem; line-height: 1.5;">
-                        Enter a room code provided by your quiz host, select your team color, and get ready to buzz in with tactile haptic feedback.
-                    </p>
-                    <div style="margin-top: 1.25rem; display: flex; gap: 8px;">
-                        <input id="quick-join-code" type="text" placeholder="ROOM CODE" maxlength="8" class="mono-timer" style="flex: 1; padding: 12px; border-radius: 10px; background: rgba(15,23,42,0.8); border: 1px solid var(--border-bright); color: var(--text-main); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; outline: none;">
-                    </div>
-                </div>
-                <div style="margin-top: 2rem;">
-                    <button id="btn-quick-join" class="btn btn-success btn-lg" style="width: 100%;">
-                        ⚡ Join Buzzer Room
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Feature Highlights -->
-        <section class="feature-grid">
-            <div class="glass-panel feature-card">
-                <div class="feature-icon">⏱️</div>
-                <h3 style="font-size: 1.1rem; font-weight: 700;">Millisecond Precision</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                    Calibrated time synchronization accounts for network jitter, ensuring participants are ranked by true physical button tap time down to 1 millisecond.
-                </p>
-            </div>
-
-            <div class="glass-panel feature-card">
-                <div class="feature-icon">🌐</div>
-                <h3 style="font-size: 1.1rem; font-weight: 700;">100% GitHub Pages Ready</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                    Zero server setup or backend required. Pure client-side WebRTC peer-to-peer data channels allow instant free hosting on GitHub Pages.
-                </p>
-            </div>
-
-            <div class="glass-panel feature-card">
-                <div class="feature-icon">📱</div>
-                <h3 style="font-size: 1.1rem; font-weight: 700;">QR Code Instant Connect</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                    The host console displays a high-resolution QR code. Players scan from their smartphone camera and join in seconds with zero app installation.
-                </p>
-            </div>
-
-            <div class="glass-panel feature-card">
-                <div class="feature-icon">🎵</div>
-                <h3 style="font-size: 1.1rem; font-weight: 700;">Built-in Web Audio FX</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                    Synthesizes game-show buzzers, unlock bells, and fanfare chimes directly in the browser with zero external audio assets to load.
-                </p>
-            </div>
-        </section>
-
-        <!-- Deployment Guide Callout -->
-        <section style="max-width: 900px; margin: 0 auto 3rem auto; width: 100%; padding: 0 1rem;">
-            <div class="glass-panel" style="padding: 2rem;">
-                <h3 style="font-size: 1.3rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
-                    <span>🐙</span> How to Host on GitHub Pages (Free)
-                </h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.25rem;">
-                    <div style="background: rgba(15,23,42,0.6); padding: 1rem; border-radius: 10px; border: 1px solid var(--border-color);">
-                        <div style="font-weight: 700; color: #38bdf8; margin-bottom: 4px;">1. Push to GitHub</div>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">
-                            Create a new GitHub repository named <code>multibuzz</code> and upload the project files.
-                        </p>
-                    </div>
-
-                    <div style="background: rgba(15,23,42,0.6); padding: 1rem; border-radius: 10px; border: 1px solid var(--border-color);">
-                        <div style="font-weight: 700; color: #38bdf8; margin-bottom: 4px;">2. Enable Pages</div>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">
-                            In your repo, go to <strong>Settings</strong> &gt; <strong>Pages</strong>, select branch <code>main</code>, folder <code>/ (root)</code>, and click <strong>Save</strong>.
-                        </p>
-                    </div>
-
-                    <div style="background: rgba(15,23,42,0.6); padding: 1rem; border-radius: 10px; border: 1px solid var(--border-color);">
-                        <div style="font-weight: 700; color: #38bdf8; margin-bottom: 4px;">3. Share &amp; Play!</div>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">
-                            Your web app will be live at <code>https://&lt;your-username&gt;.github.io/multibuzz/</code>!
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 
-    <footer style="text-align: center; padding: 1.5rem; border-top: 1px solid var(--border-color); color: var(--text-dim); font-size: 0.85rem;">
-        Multibuzz Quiz System &bull; Millisecond Sequence Engine &bull; Ready for GitHub Pages
+    <footer style="text-align: center; padding: 1rem; color: var(--text-dim); font-size: 0.8rem;">
+        Multibuzz &bull; Sub-Second Quiz Buzzer
     </footer>
 
     <script>

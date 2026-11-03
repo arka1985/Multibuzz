@@ -33,7 +33,6 @@ class QuizPlayer {
             buzzerHousing: document.getElementById('buzzer-housing'),
             buzzerButton: document.getElementById('buzzer-button'),
             buzzerStatusText: document.getElementById('buzzer-status-text'),
-            buzzerSubtext: document.getElementById('buzzer-subtext'),
             buzzerResultCard: document.getElementById('buzzer-result-card'),
             resultRankBadge: document.getElementById('result-rank-badge'),
             resultTimeText: document.getElementById('result-time-text'),
@@ -181,7 +180,6 @@ class QuizPlayer {
             this.dom.buzzerHousing.className = 'buzzer-housing active-glow';
             this.dom.buzzerButton.className = 'buzzer-button state-ready';
             this.dom.buzzerStatusText.innerText = '⚡ BUZZ NOW!';
-            this.dom.buzzerSubtext.innerText = 'Tap button or press Spacebar!';
             this.dom.buzzerResultCard.style.display = 'none';
 
             window.soundEngine.playUnlock();
@@ -192,7 +190,6 @@ class QuizPlayer {
             
             if (!this.hasBuzzed) {
                 this.dom.buzzerStatusText.innerText = '🔒 LOCKED';
-                this.dom.buzzerSubtext.innerText = 'Wait for host to read question...';
                 this.dom.buzzerResultCard.style.display = 'none';
             }
         }
@@ -243,7 +240,6 @@ class QuizPlayer {
 
         // Immediate optimistic UI feedback
         this.dom.buzzerStatusText.innerText = '🔔 BUZZED!';
-        this.dom.buzzerSubtext.innerText = 'Sent to host. Recording sequence...';
 
         if (buzzData) {
             this.dom.buzzerResultCard.style.display = 'flex';
@@ -261,20 +257,19 @@ class QuizPlayer {
             this.dom.buzzerResultCard.style.display = 'flex';
             
             let rankEmoji = `#${myEntry.rank}`;
-            if (myEntry.rank === 1) rankEmoji = '🥇 1st Place!';
-            else if (myEntry.rank === 2) rankEmoji = '🥈 2nd Place';
-            else if (myEntry.rank === 3) rankEmoji = '🥉 3rd Place';
-            else rankEmoji = `#${myEntry.rank} Place`;
+            if (myEntry.rank === 1) rankEmoji = '🥇 #1';
+            else if (myEntry.rank === 2) rankEmoji = '🥈 #2';
+            else if (myEntry.rank === 3) rankEmoji = '🥉 #3';
 
             this.dom.resultRankBadge.innerText = rankEmoji;
             this.dom.resultTimeText.innerText = (myEntry.elapsedMs / 1000).toFixed(3) + 's';
 
             if (myEntry.rank === 1) {
-                this.dom.buzzerStatusText.innerText = '🥇 YOU BUZZED FIRST!';
+                this.dom.buzzerStatusText.innerText = '🥇 1st Place!';
                 this.dom.buzzerResultCard.style.background = 'linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(30, 41, 59, 0.9))';
                 this.dom.buzzerResultCard.style.borderColor = 'rgba(245, 158, 11, 0.6)';
             } else {
-                this.dom.buzzerStatusText.innerText = `BUZZED (#${myEntry.rank})`;
+                this.dom.buzzerStatusText.innerText = `#${myEntry.rank}`;
                 this.dom.buzzerResultCard.style.background = 'rgba(30, 41, 59, 0.85)';
                 this.dom.buzzerResultCard.style.borderColor = 'var(--border-bright)';
             }
