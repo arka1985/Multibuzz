@@ -180,7 +180,6 @@ multibuzz/
 - **Dr. Arkaprabha Sau**, MBBS, MD (Gold Medalist), PhD (Computer Science & Engineering)
 - **Qualifications**: DPH, Diploma Geriatric Medicine, Certificate in Diabetes Management
 - **Affiliation**: All India Institute of Hygiene & Public Health (AIIH&PH), Ministry of Health and Family Welfare, Govt. of India
-- **ORCID**: [0000-0002-4818-5994](https://orcid.org/0000-0002-4818-5994)
 
 ---
 
