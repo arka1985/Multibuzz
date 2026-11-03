@@ -117,10 +117,19 @@ class QuizPlayer {
 
     connectToRoom() {
         this.dom.btnJoin.disabled = true;
-        this.dom.btnJoin.innerText = 'Connecting...';
+        this.dom.btnJoin.innerText = `Connecting to ${this.roomCode}...`;
+
+        let connectTimeout = setTimeout(() => {
+            if (this.network && !this.network.isConnected) {
+                this.dom.btnJoin.disabled = false;
+                this.dom.btnJoin.innerText = 'Enter Buzzer';
+                alert(`Room "${this.roomCode}" not responding.\n\nPlease check the room code or ensure the Host console is active.`);
+            }
+        }, 9000);
 
         this.network = new ParticipantNetwork({
             onConnected: () => {
+                clearTimeout(connectTimeout);
                 console.log('Connected to host!');
                 this.showBuzzerScreen();
             },
@@ -132,9 +141,10 @@ class QuizPlayer {
                 this.handleIncomingHostMessage(msg);
             },
             onError: (err) => {
+                clearTimeout(connectTimeout);
                 console.warn('Network error:', err);
                 this.dom.btnJoin.disabled = false;
-                this.dom.btnJoin.innerText = 'Join Quiz Room';
+                this.dom.btnJoin.innerText = 'Enter Buzzer';
                 alert('Could not connect to room ' + this.roomCode + '. Please ensure the Host is active!');
             }
         });

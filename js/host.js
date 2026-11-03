@@ -462,6 +462,9 @@ class QuizHost {
     }
 
     getPlayerUrl() {
+        if (window.location.protocol === 'file:') {
+            return `https://arka1985.github.io/Multibuzz/play.html?room=${this.roomCode}`;
+        }
         const origin = window.location.origin;
         let pathname = window.location.pathname;
         if (pathname.endsWith('host.html')) {

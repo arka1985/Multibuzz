@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Multibuzz - Buzzer</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+    <!-- Local vendor library with CDN fallback -->
+    <script src="js/vendor/mqtt.min.js"></script>
+    <script>
+        if (typeof mqtt === 'undefined') {
+            document.write('<script src="https://unpkg.com/mqtt@5.3.5/dist/mqtt.min.js"><\/script>');
+        }
+    </script>
     <style>
         .color-selector {
             display: flex;
@@ -123,7 +129,7 @@
 
     <script src="js/audio.js"></script>
     <script src="js/time-sync.js"></script>
-    <script src="js/webrtc.js"></script>
+    <script src="js/network.js"></script>
     <script src="js/player.js"></script>
 </body>
 </html>
