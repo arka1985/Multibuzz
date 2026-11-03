@@ -170,9 +170,8 @@ multibuzz/
 
 ## 👨‍⚕️ Project Leadership & Development
 
-### Project Head
+### Conceptualised by
 - **Prof. (Dr.) Monalisha Sahu**, MBBS, MD
-- **Designation**: Project Head & Occupational & Environmental Health Specialist
 - **Department**: Head, Department of Occupational Health
 - **Affiliation**: All India Institute of Hygiene & Public Health (AIIH&PH), Ministry of Health and Family Welfare, Govt. of India
 

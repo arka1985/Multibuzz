@@ -18,11 +18,32 @@
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
     --text-dim: #64748b;
+    --accent-blue: #38bdf8;
+
+    --input-bg: rgba(15, 23, 42, 0.8);
+    --header-bg: rgba(10, 14, 23, 0.75);
 
     --buzzer-red: #ef4444;
     --buzzer-red-dark: #991b1b;
     --buzzer-green: #10b981;
     --buzzer-green-dark: #065f46;
+}
+
+/* Light / Day Mode Theme */
+[data-theme="light"] {
+    --bg-dark: #f8fafc;
+    --bg-card: rgba(255, 255, 255, 0.92);
+    --bg-card-hover: rgba(255, 255, 255, 1);
+    --border-color: rgba(0, 0, 0, 0.09);
+    --border-bright: rgba(0, 0, 0, 0.18);
+    
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --text-dim: #64748b;
+    --accent-blue: #0284c7;
+
+    --input-bg: #ffffff;
+    --header-bg: rgba(255, 255, 255, 0.88);
 }
 
 * {
@@ -55,6 +76,58 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 16px;
     box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] body {
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(16, 185, 129, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(241, 245, 249, 0.85) 0%, #f1f5f9 100%);
+}
+
+[data-theme="light"] header {
+    background: var(--header-bg);
+}
+
+[data-theme="light"] .glass-panel {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.07), 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .btn-outline {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.12);
+    color: var(--text-main);
+}
+
+[data-theme="light"] .btn-outline:hover {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .buzz-card {
+    background: rgba(255, 255, 255, 0.88);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .buzz-card:hover {
+    background: #ffffff;
+}
+
+[data-theme="light"] .time-pill {
+    background: #f1f5f9;
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #0284c7;
+}
+
+[data-theme="light"] input {
+    background: var(--input-bg) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-bright) !important;
+}
+
+[data-theme="light"] footer {
+    background: var(--header-bg) !important;
+    border-top-color: var(--border-color) !important;
 }
 
 .glass-panel-interactive {

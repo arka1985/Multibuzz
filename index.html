@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multibuzz</title>
+    <title>Multibuzz - Real-Time Quiz Buzzer</title>
+    
+    <!-- PWA & Mobile Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+    <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+
     <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Theme & PWA Controllers -->
+    <script src="js/theme.js"></script>
+    <script src="js/pwa.js"></script>
     <style>
         .portal-grid {
             display: grid;
@@ -28,12 +41,27 @@
     <header>
         <a href="index.html" class="brand">
             <div class="brand-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3" fill="currentColor"></circle>
+                    <path d="M7 17A7 7 0 0 1 7 7"></path>
+                    <path d="M17 7a7 7 0 0 1 0 10"></path>
+                    <path d="M3.5 20.5a12 12 0 0 1 0-17"></path>
+                    <path d="M20.5 3.5a12 12 0 0 1 0 17"></path>
                 </svg>
             </div>
             <span>Multibuzz</span>
         </a>
+
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <!-- Install Mobile App Button -->
+            <button class="btn btn-outline btn-install-app" style="display: none; padding: 5px 12px; font-size: 0.82rem;" title="Install on Mobile">
+                📲 Install App
+            </button>
+
+            <!-- Day & Night Mode Toggle -->
+            <button class="btn btn-outline btn-icon btn-theme-toggle" style="height: 34px; width: 34px; padding: 0;" title="Toggle Day/Night Mode">
+            </button>
+        </div>
     </header>
 
     <main class="portal-grid">
@@ -72,10 +100,10 @@
 
     <footer style="text-align: center; padding: 1.5rem 1rem; border-top: 1px solid var(--border-color); background: rgba(10, 14, 23, 0.85);">
         <div style="max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; line-height: 1.5;">
-            <!-- Project Head -->
+            <!-- Conceptualised by -->
             <div style="display: flex; flex-direction: column; gap: 2px;">
-                <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); font-weight: 700;">Project Head &amp; Occupational &amp; Environmental Health Specialist</div>
-                <div style="font-weight: 800; color: #38bdf8; font-size: 1rem;">
+                <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); font-weight: 700;">Conceptualised by</div>
+                <div style="font-weight: 800; color: #38bdf8; font-size: 1.05rem;">
                     Prof. (Dr.) Monalisha Sahu, MBBS, MD
                 </div>
                 <div style="font-size: 0.8rem; color: var(--text-muted);">
@@ -89,11 +117,14 @@
             <!-- Developer -->
             <div style="display: flex; flex-direction: column; gap: 2px;">
                 <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); font-weight: 700;">Developer</div>
-                <div style="font-weight: 700; color: var(--text-main); font-size: 0.95rem;">
+                <div style="font-weight: 800; color: #38bdf8; font-size: 1.05rem;">
                     Dr. Arkaprabha Sau, MBBS, MD (Gold Medalist), PhD (Computer Science &amp; Engineering)
                 </div>
                 <div style="font-size: 0.8rem; color: var(--text-dim);">
                     DPH, Diploma Geriatric Medicine, Certificate in Diabetes Management
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">
+                    All India Institute of Hygiene &amp; Public Health (AIIH&amp;PH), Ministry of Health and Family Welfare, Govt. of India
                 </div>
             </div>
         </div>

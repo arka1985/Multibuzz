@@ -4,7 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multibuzz - Host</title>
+    
+    <!-- PWA & Mobile Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+    <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+
     <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Theme & PWA Controllers -->
+    <script src="js/theme.js"></script>
+    <script src="js/pwa.js"></script>
+
     <!-- Local vendor libraries with CDN fallback -->
     <script src="js/vendor/mqtt.min.js"></script>
     <script src="js/vendor/qrcode.min.js"></script>
@@ -21,8 +35,12 @@
     <header>
         <a href="index.html" class="brand">
             <div class="brand-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3" fill="currentColor"></circle>
+                    <path d="M7 17A7 7 0 0 1 7 7"></path>
+                    <path d="M17 7a7 7 0 0 1 0 10"></path>
+                    <path d="M3.5 20.5a12 12 0 0 1 0-17"></path>
+                    <path d="M20.5 3.5a12 12 0 0 1 0 17"></path>
                 </svg>
             </div>
             <span>Multibuzz <span style="font-size: 0.75rem; opacity: 0.7; font-weight: 500;">HOST</span></span>
@@ -81,6 +99,15 @@
                     <line x1="12" y1="16" x2="12" y2="12"></line>
                     <line x1="12" y1="8" x2="12.01" y2="8"></line>
                 </svg>
+            </button>
+
+            <!-- Day & Night Mode Toggle -->
+            <button class="btn btn-outline btn-icon btn-theme-toggle" style="height: 28px; width: 28px; padding: 0;" title="Toggle Day/Night Mode">
+            </button>
+
+            <!-- Install Mobile App Button -->
+            <button class="btn btn-outline btn-install-app" style="display: none; padding: 4px 8px; font-size: 0.75rem;" title="Install on Mobile">
+                📲
             </button>
         </div>
     </header>
@@ -197,14 +224,13 @@
                 <button id="btn-close-about" class="btn btn-outline btn-icon" style="height:28px; width:28px;">✕</button>
             </div>
             
-            <!-- Project Head -->
+            <!-- Conceptualised by -->
             <div style="display: flex; flex-direction: column; gap: 3px; font-size: 0.85rem; line-height: 1.4; padding-bottom: 10px; border-bottom: 1px solid var(--border-color);">
-                <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-dim); font-weight: 700; letter-spacing: 0.05em;">Project Head &amp; Specialist</div>
+                <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-dim); font-weight: 700; letter-spacing: 0.05em;">Conceptualised by</div>
                 <div style="font-size: 1.05rem; font-weight: 800; color: #38bdf8;">
                     Prof. (Dr.) Monalisha Sahu, MBBS, MD
                 </div>
                 <div style="color: var(--text-muted); font-size: 0.8rem;">
-                    Occupational &amp; Environmental Health Specialist<br>
                     Head, Department of Occupational Health
                 </div>
                 <div style="color: var(--text-dim); font-size: 0.78rem;">
@@ -215,19 +241,21 @@
             <!-- Developer -->
             <div style="display: flex; flex-direction: column; gap: 3px; font-size: 0.85rem; line-height: 1.4;">
                 <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-dim); font-weight: 700; letter-spacing: 0.05em;">Developer</div>
-                <div style="font-size: 1.05rem; font-weight: 800; color: var(--text-main);">
-                    Dr. Arkaprabha Sau
+                <div style="font-size: 1.05rem; font-weight: 800; color: #38bdf8;">
+                    Dr. Arkaprabha Sau, MBBS, MD (Gold Medalist), PhD (Computer Science &amp; Engineering)
                 </div>
                 <div style="color: var(--text-muted); font-size: 0.8rem;">
-                    MBBS, MD (Gold Medalist), PhD (Computer Science &amp; Engineering)<br>
                     DPH, Diploma Geriatric Medicine, Certificate in Diabetes Management
+                </div>
+                <div style="color: var(--text-dim); font-size: 0.78rem;">
+                    All India Institute of Hygiene &amp; Public Health (AIIH&amp;PH), Ministry of Health and Family Welfare, Govt. of India
                 </div>
             </div>
         </div>
     </div>
 
     <footer style="text-align: center; padding: 0.75rem; font-size: 0.75rem; color: var(--text-dim); border-top: 1px solid var(--border-color); background: rgba(10, 14, 23, 0.7);">
-        Project Head: Prof. (Dr.) Monalisha Sahu &bull; Developer: Dr. Arkaprabha Sau (AIIH&amp;PH, MoHFW, Govt. of India)
+        Conceptualised by: Prof. (Dr.) Monalisha Sahu &bull; Developer: Dr. Arkaprabha Sau (AIIH&amp;PH, MoHFW, Govt. of India)
     </footer>
 
     <script src="js/audio.js"></script>
