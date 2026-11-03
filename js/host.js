@@ -47,7 +47,10 @@ class QuizHost {
             participantsModal: document.getElementById('participants-modal'),
             participantsList: document.getElementById('participants-list-body'),
             btnShowParticipants: document.getElementById('btn-show-participants'),
-            btnCloseParticipants: document.getElementById('btn-close-participants')
+            btnCloseParticipants: document.getElementById('btn-close-participants'),
+            aboutModal: document.getElementById('about-modal'),
+            btnShowAbout: document.getElementById('btn-show-about'),
+            btnCloseAbout: document.getElementById('btn-close-about')
         };
     }
 
@@ -82,6 +85,15 @@ class QuizHost {
 
         this.dom.btnShowParticipants.addEventListener('click', () => this.showParticipants());
         this.dom.btnCloseParticipants.addEventListener('click', () => this.hideParticipants());
+
+        if (this.dom.btnShowAbout && this.dom.aboutModal) {
+            this.dom.btnShowAbout.addEventListener('click', () => {
+                this.dom.aboutModal.style.display = 'flex';
+            });
+            this.dom.btnCloseAbout.addEventListener('click', () => {
+                this.dom.aboutModal.style.display = 'none';
+            });
+        }
 
         // Keyboard Shortcuts
         // Space = Toggle Buzzer

@@ -168,6 +168,16 @@ multibuzz/
 
 ---
 
+## 👨‍⚕️ Developer & Project Lead
+
+**Dr. Arkaprabha Sau**  
+- **Qualifications**: MBBS, MD (Gold Medalist), PhD (Computer Science & Engineering), DPH, Diploma Geriatric Medicine, Certificate in Diabetes Management
+- **Role**: Project Head & Occupational & Environmental Health Specialist | Head, Department of Occupational Health
+- **Affiliation**: All India Institute of Hygiene & Public Health (AIIH&PH), Ministry of Health and Family Welfare, Govt. of India
+- **ORCID**: [0000-0002-4818-5994](https://orcid.org/0000-0002-4818-5994)
+
+---
+
 ## 🛡️ License
 
 MIT License. Free for schools, universities, pub quizzes, and trivia enthusiasts worldwide!
