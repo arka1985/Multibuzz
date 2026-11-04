@@ -177,8 +177,9 @@ multibuzz/
 
 ### Developer
 - **Dr. Arkaprabha Sau**, MBBS, MD (Gold Medalist), PhD (Computer Science & Engineering)
+- **Designation**: Deputy Director (Medical)
 - **Qualifications**: DPH, Diploma Geriatric Medicine, Certificate in Diabetes Management
-- **Affiliation**: All India Institute of Hygiene & Public Health (AIIH&PH), Ministry of Health and Family Welfare, Govt. of India
+- **Affiliation**: Regional Labour Institute, Kolkata, DGOSH, Ministry of Labour and Employment, Govt. of India
 
 ---
 
